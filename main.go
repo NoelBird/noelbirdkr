@@ -35,7 +35,7 @@ func MakeWebHandler() http.Handler {
 	mux.HandleFunc("/items", GetItemListHandler).Methods("GET")
 
 	fileServer := http.FileServer(http.Dir("./frontend/build/static/"))
-	mux.Handle("/static/", http.StripPrefix("/static/", fileServer))
+	mux.Handle("/static/", http.StripPrefix("static/", fileServer))
 	items = make(map[int]Item)
 	items[1] = Item{}
 	items[2] = Item{}
